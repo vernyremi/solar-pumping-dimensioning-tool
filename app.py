@@ -5,7 +5,7 @@ st.set_page_config(page_title="Accueil", layout="centered")
 
 show_menu()
 
-st.title("🏠 Application de démonstration")
+st.title("☀️ Dimensionnement d'un système de pompage solaire")
 st.write("Bienvenue dans cette application Streamlit multi-pages.")
 
 st.markdown("""
