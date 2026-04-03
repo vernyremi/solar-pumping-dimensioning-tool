@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd 
 from utils.menu import show_menu
+from utils.init_session import init_session_defaults
 
+init_session_defaults()
 show_menu ()
 st.title("💧  Demande en eau")
 

@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 from utils.menu import show_menu
+from utils.init_session import init_session_defaults
 
+init_session_defaults()
 show_menu()
 
 MOIS = ["Jan", "Fév", "Mar", "Avr", "Mai", "Jun", "Jul", "Aoû", "Sep", "Oct", "Nov", "Déc"]

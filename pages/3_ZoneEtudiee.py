@@ -2,7 +2,9 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 from utils.menu import show_menu
+from utils.init_session import init_session_defaults
 
+init_session_defaults()
 show_menu()
 
 # À adapter si tu as déjà REGIONS ailleurs dans ton projet
