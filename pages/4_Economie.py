@@ -27,14 +27,14 @@ with st.form("form_economie"):
     st.markdown("#### Durées de vie des composants (ans)")
     col1, col2, col3 = st.columns(3)
     with col1:
-        lt_pv = st.number_input("PV", value=st.session_state.lt_pv, min_value=1, step=1, key="lt_pv")
-        lt_mp = st.number_input("Moto-pompe", value=st.session_state.lt_mp, min_value=1, step=1, key="lt_mp")
+        lt_pv = st.number_input("PV", value=st.session_state.lt_pv, min_value=1, step=1)
+        lt_mp = st.number_input("Moto-pompe", value=st.session_state.lt_mp, min_value=1, step=1)
     with col2:
-        lt_inverter = st.number_input("Onduleur", value=st.session_state.lt_inverter, min_value=1, step=1, key="lt_inv")
-        lt_ms = st.number_input("Structures", value=st.session_state.lt_ms, min_value=1, step=1, key="lt_ms")
+        lt_inverter = st.number_input("Onduleur", value=st.session_state.lt_inverter, min_value=1, step=1)
+        lt_ms = st.number_input("Structures", value=st.session_state.lt_ms, min_value=1, step=1)
     with col3:
-        lt_rms = st.number_input("Câblage", value=st.session_state.lt_rms, min_value=1, step=1, key="lt_rms")
-        lt_pipe = st.number_input("Tuyaux", value=st.session_state.lt_pipe, min_value=1, step=1, key="lt_pipe")
+        lt_rms = st.number_input("Câblage", value=st.session_state.lt_rms, min_value=1, step=1)
+        lt_pipe = st.number_input("Tuyaux", value=st.session_state.lt_pipe, min_value=1, step=1)
 
     st.markdown("#### Taux")
     col1, col2 = st.columns(2)
