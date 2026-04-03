@@ -13,3 +13,4 @@ def show_menu():
     st.sidebar.page_link("pages/6_DemandeEau.py", label="💧 Demande en eau")
     st.sidebar.page_link("pages/7_Hydrogeologie.py", label="🪨  Hydrogéologie")
     st.sidebar.page_link("pages/8_Conception.py", label="🔧  Conception")
+    st.sidebar.page_link("pages/9_Simulateur.py", label="🔧  Simulateur")
