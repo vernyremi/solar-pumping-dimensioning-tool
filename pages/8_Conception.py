@@ -6,22 +6,20 @@ init_session_defaults()
 show_menu ()
 st.title("🔧  Conception")
 
+epsilon_val = st.number_input("Pipe roughness (m)", value=st.session_state.epsilon_val, step=1e-5, format="%.6f")
 
-with st.form("form_conception"):
+with st.expander("Additional parameters"):
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     with col1:
-        gamma_val = st.number_input("Coeff. perte temp. PV γ (%/°C)", value=st.session_state.gamma_val, step=0.01, format="%.2f")
-        epsilon_val = st.number_input("Rugosité tuyau ε (m)", value=st.session_state.epsilon_val, step=1e-5, format="%.6f")
-        cpv_loss = st.number_input("Pertes PV cpv_loss (-)", value=st.session_state.cpv_loss, step=0.01, min_value=0.0, max_value=1.0, format="%.2f")
+        gamma_val = st.number_input("Temperature loss coefficient of photovoltaic pannels  (%/°C)", value=st.session_state.gamma_val, step=0.01, format="%.2f")
+        cpv_loss = st.number_input("Other photovoltaic pannels loss (-)", value=st.session_state.cpv_loss, step=0.01, min_value=0.0, max_value=1.0, format="%.2f")
     with col2:
-        noct_val = st.number_input("NOCT (°C)", value=st.session_state.noct_val, step=1)
-        ht_val = st.number_input("Hauteur sortie eau Ht (m)", value=st.session_state.ht_val, step=0.1, format="%.1f")
-        eta_inv = st.number_input("Rendement onduleur η_inv (-)", value=st.session_state.eta_inv, step=0.01, min_value=0.0, max_value=1.0, format="%.2f")
-    with col3:
-        beta_val = st.number_input("Pertes forage β (m²/s⁵)", value=st.session_state.beta_val, step=100)
-
-    submitted = st.form_submit_button("Valider")
+        noct_val = st.number_input("NOCT (Nominal Operating Cell Temperature) (°C)", value=st.session_state.noct_val, step=1)
+        ht_val = st.number_input("Height of the water outlet (m)", value=st.session_state.ht_val, step=0.1, format="%.1f")
+        eta_inv = st.number_input("Energy eficciency of the inverter (-)", value=st.session_state.eta_inv, step=0.01, min_value=0.0, max_value=1.0, format="%.2f")
+        
+    submitted = st.button("Confirm")
 
 
 if submitted:
@@ -31,6 +29,8 @@ if submitted:
     st.session_state.noct_val = noct_val
     st.session_state.ht_val = ht_val
     st.session_state.eta_inv = eta_inv
-    st.session_state.beta_val = beta_val
+    
+    st.success("Data saved successffully")
 
-    st.success("Configuration sauvegardée !")
+if st.button('Calculate', type='primary'):
+    st.switch_page("pages/9_Results")
