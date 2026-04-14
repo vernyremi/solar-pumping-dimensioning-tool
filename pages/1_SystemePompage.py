@@ -13,7 +13,7 @@ CATALOGUE_POMPES = {
 CONFIGURATIONS = ["Network", "Photovoltaics", "Hybride"]
 # acquisition données à remplacer par les API
 
-st.title("⚙️ Pomping system choice")
+st.title("⚙️ Pumping system choice")
 
 with st.form("form_pompe"):
 
@@ -44,8 +44,8 @@ with st.form("form_pompe"):
         "Electricity resell to the network",
         value=st.session_state.revente
     )
-
     submitted = st.form_submit_button("Confirm")
+    
 
 # Mise à jour uniquement si validé
 if submitted:
@@ -55,3 +55,6 @@ if submitted:
     st.session_state.revente = revente
 
     st.success("Datas saved successfully !")
+
+if st.button("Next", type="primary") :
+    st.switch_page("pages/2_Periode.py")
