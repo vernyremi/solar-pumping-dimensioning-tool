@@ -10,10 +10,10 @@ CATALOGUE_POMPES = {
     "SOLAR_103_DCSSP_9000": {"label": "SOLAR 103 DCSSP 9000", "P_max": 9000, "TDH_max": 120},
 }
 
-CONFIGURATIONS = ["Reseau", "PV_avec_ecretage", "Hybride"]
+CONFIGURATIONS = ["Network", "Photovoltaics", "Hybride"]
 # acquisition données à remplacer par les API
 
-st.title("⚙️ Choix du système de pompage")
+st.title("⚙️ Pomping system choice")
 
 with st.form("form_pompe"):
 
@@ -21,7 +21,7 @@ with st.form("form_pompe"):
     
     with col1:
         motor_pump = st.selectbox(
-            "Moto-pompe",
+            "Motor pump",
             options=list(CATALOGUE_POMPES.keys()),
             format_func=lambda k: CATALOGUE_POMPES[k]["label"],
             index=list(CATALOGUE_POMPES.keys()).index(st.session_state.motor_pump),
@@ -35,17 +35,17 @@ with st.form("form_pompe"):
         )
 
     p_max = st.number_input(
-        "Puissance max entrée P_max (W)",
+        "Maximum power in entrance (W)",
         value=st.session_state.p_max,
         step=100,
     )
 
     revente = st.checkbox(
-        "Revente d'électricité au réseau",
+        "Electricity resell to the network",
         value=st.session_state.revente
     )
 
-    submitted = st.form_submit_button("Valider")
+    submitted = st.form_submit_button("Confirm")
 
 # Mise à jour uniquement si validé
 if submitted:
@@ -54,4 +54,4 @@ if submitted:
     st.session_state.p_max = p_max
     st.session_state.revente = revente
 
-    st.success("Configuration sauvegardée !")
+    st.success("Datas saved successfully !")
