@@ -5,31 +5,19 @@ from utils.init_session import init_session_defaults
 
 init_session_defaults()
 show_menu ()
-st.title("🌿  Émissions CO₂")
+st.title("🌿  CO$_{2}$ emissions")
 
 with st.form("form_CO2"):
     col1, col2 = st.columns(2)
     with col1:
-        pv_emissions = st.number_input("PV (gCO₂eq/Wp)", value=st.session_state.pv_emissions, step=10)
-        inverter_emissions = st.number_input("Onduleur (gCO₂eq/Wp)", value=st.session_state.inverter_emissions, step=5)
-        ms_emissions = st.number_input("Structures (gCO₂eq/Wp)", value=st.session_state.ms_emissions, step=1.0, format="%.1f")
+        pv_emissions = st.number_input("Photovoltaic emissions (gCO₂eq/Wp)", value=st.session_state.pv_emissions, step=10)
+        inverter_emissions = st.number_input("Converter emissions (gCO₂eq/Wp)", value=st.session_state.inverter_emissions, step=5)
+        ms_emissions = st.number_input("Structure emissions (gCO₂eq/Wp)", value=st.session_state.ms_emissions, step=1.0, format="%.1f")
     with col2:
-        rms_emissions = st.number_input("Câblage (gCO₂eq/Wp)", value=st.session_state.rms_emissions, step=1)
-        mp_emissions = st.number_input("Moto-pompe (gCO₂eq/W)", value=st.session_state.mp_emissions, step=5)
+        rms_emissions = st.number_input("Wiring emissions (gCO₂eq/Wp)", value=st.session_state.rms_emissions, step=1)
+        mp_emissions = st.number_input("Motor pumping emissions (gCO₂eq/W)", value=st.session_state.mp_emissions, step=5)
 
-    em_data = pd.DataFrame({
-        "Composant": ["PV", "Onduleur", "Structures", "Câblage", "Moto-pompe"],
-        "gCO₂eq/Wp": [
-            pv_emissions,
-            inverter_emissions,
-            ms_emissions,
-            rms_emissions,
-            mp_emissions,
-        ]
-    }).set_index("Composant")
-    st.bar_chart(em_data, height=250, color="#16a34a")
-
-    submitted = st.form_submit_button("Valider")
+    submitted = st.form_submit_button("Confirm")
 
 if submitted:
     st.session_state.pv_emissions = pv_emissions
@@ -38,4 +26,7 @@ if submitted:
     st.session_state.rms_emissions = rms_emissions
     st.session_state.mp_emissions = mp_emissions
 
-    st.success("Configuration sauvegardée !")
+    st.success("Datas saved successfully")
+
+if st.button("Next", type='primary'):
+    st.switch_page('pages/6_DemandeEau.py')
