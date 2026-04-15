@@ -55,5 +55,5 @@ if submitted or sub:
 
     st.success("Datas saved successfully")
 
-if st.button("Next", type='primary'):
+if st.button("Next", type='primary',use_container_width=True):
     st.switch_page('pages/8_Conception.py')

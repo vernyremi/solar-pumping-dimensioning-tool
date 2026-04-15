@@ -5,7 +5,7 @@ from utils.init_session import init_session_defaults
 init_session_defaults()
 show_menu()
 
-st.set_page_config(page_title="Accueil", layout="centered")
+st.set_page_config(page_title="Homepage", layout="centered")
 
 
 st.title("☀️ Sizing of your Solar Water Pumping System")
@@ -48,5 +48,5 @@ When it is done you will get for results the motor pump model and solar installa
 Informations are at your disposal next to the different datas you must give to help you in your approach.     
  """)
 
-if st.button("Next Page →", type="primary"):
+if st.button("Start", type="primary",use_container_width=True):
     st.switch_page("pages/1_SystemePompage.py")
