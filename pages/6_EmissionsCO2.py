@@ -29,4 +29,4 @@ if submitted:
     st.success("Datas saved successfully")
 
 if st.button("Next", type='primary',use_container_width=True):
-    st.switch_page('pages/6_DemandeEau.py')
+    st.switch_page('pages/7_Hydrogeologie.py')
