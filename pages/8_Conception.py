@@ -33,4 +33,4 @@ if submitted:
     st.success("Data saved successffully")
 
 if st.button('Calculate', type='primary', use_container_width=True):
-    st.switch_page("pages/9_Results")
+    st.switch_page("pages/9_Results.py")

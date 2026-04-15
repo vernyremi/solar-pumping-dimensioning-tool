@@ -82,4 +82,4 @@ c1.metric("Longitude", f"{st.session_state.lon_max:.4f}°")
 c2.metric("Latitude", f"{st.session_state.lat_max:.4f}°")
 
 if st.button("Next", type='primary', use_container_width=True):
-    st.switch_page("pages/4_Economie.py")
+    st.switch_page("pages/4_Periode.py")
